@@ -2,6 +2,7 @@ import express, { Application, Request, Response } from 'express'
 import morgan from 'morgan'
 import helmet from 'helmet'
 import config from './config'
+import routes from './routes/index'
 import errorMiddleware from './middlewares/error.middleware'
 
 const PORT = config.port || 5000
@@ -25,6 +26,8 @@ app.use(helmet())
 app.get('/', (_req: Request, res: Response) => {
   res.json('Hello Server! 🚀')
 })
+
+app.use('/api', routes)
 
 app.use(errorMiddleware)
 
