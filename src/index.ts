@@ -2,6 +2,7 @@ import express, { Application, Request, Response } from 'express'
 import morgan from 'morgan'
 import helmet from 'helmet'
 import config from './config'
+import errorMiddleware from './middlewares/error.middleware'
 
 const PORT = config.port || 5000
 
@@ -24,6 +25,8 @@ app.use(helmet())
 app.get('/', (_req: Request, res: Response) => {
   res.json('Hello Server! 🚀')
 })
+
+app.use(errorMiddleware)
 
 app.use((_req: Request, res: Response) => {
   res.status(404).json('Whoops!! You are lost go back to documentation to find your way back to Home again 😂')
