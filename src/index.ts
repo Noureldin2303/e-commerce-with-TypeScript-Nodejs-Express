@@ -1,11 +1,15 @@
 import express, { Application, Request, Response } from 'express'
 import morgan from 'morgan'
 import helmet from 'helmet'
+import config from './config'
 
-const PORT = 5000
+const PORT = config.port || 5000
 
 // create instance server
 const app: Application = express()
+
+// connect to database
+config.connect()
 
 // middlewares
 // parsing incoming requests
