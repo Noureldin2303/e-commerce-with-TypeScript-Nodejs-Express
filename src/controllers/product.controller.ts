@@ -42,7 +42,7 @@ const deleteProduct = async (req: Request, res: Response) => {
 }
 
 const updateProduct = async (req: Request, res: Response) => {
-  Product.findByIdAndUpdate({ _id: req.params.id }, { $set: req.body })
+  Product.findByIdAndUpdate({ _id: req.params.id }, { $set: { $eq: req.body } })
     .then((product) =>
       res.status(200).json({ message: 'Product updated successfully', product })
     )
