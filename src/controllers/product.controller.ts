@@ -33,10 +33,26 @@ const getSpecificProduct = async (req: Request, res: Response) => {
   }
 }
 
-// const deleteProduct = async (req: Request, res: Response) => {}
+const deleteProduct = async (req: Request, res: Response) => {
+  Product.findByIdAndRemove({ _id: req.params.id })
+    .then((product) =>
+      res.status(200).json({ message: 'Product deleted successfully', product })
+    )
+    .catch((err) => res.status(400).json(err))
+}
+
+const updateProduct = async (req: Request, res: Response) => {
+  Product.findByIdAndUpdate({ _id: req.params.id }, { $set: req.body })
+    .then((product) =>
+      res.status(200).json({ message: 'Product updated successfully', product })
+    )
+    .catch((err) => res.status(400).json(err))
+}
 
 export default {
   addProduct,
   getAllProducts,
   getSpecificProduct,
+  deleteProduct,
+  updateProduct,
 }
