@@ -76,17 +76,18 @@ Also, be sure to have `git` available in your PATH, `npm` might need it (You can
 ## Collections
 
 ### User
-
+```javascript
     name: String,
     email: String,
     password: String
-    
+```    
 
 ### Product
-
+```javascript
     name:String,
     description: String,
     price: Number,
     colors: Array,
     sizes: Array
+``` 
    
