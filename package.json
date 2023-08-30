@@ -42,7 +42,7 @@
     "jasmine": "^4.5.0",
     "jasmine-spec-reporter": "^7.0.0",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.3.3",
+    "mongoose": "^7.5.0",
     "morgan": "^1.10.0",
     "supertest": "^6.3.3"
   }
